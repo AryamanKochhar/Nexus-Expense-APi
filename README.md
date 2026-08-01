@@ -8,16 +8,20 @@ A FastAPI REST API for managing personal expenses.
 - Expense fields: `id`, `title`, `amount`, `category`, `date`
 - Interactive docs: Swagger UI at `/docs`, ReDoc at `/redoc`
 
-Features:
+### Core features
 
 - Add an expense
 - View all expenses
 - Filter expenses by category
 - Calculate total expenses (overall and by category)
 - Delete an expense
-- Search expenses by title
-- Monthly summary
-- Docker support
+
+### Optional bonus
+
+- Search expenses by title — `GET /expenses/search?q=Lunch`
+- Monthly summary endpoint — `GET /expenses/monthly-summary`
+- OpenAPI / Swagger docs — http://localhost:8000/docs (also ReDoc at `/redoc`)
+- Docker support — `Dockerfile` and `docker-compose.yml` (see Docker section below)
 
 ## Prerequisites
 
