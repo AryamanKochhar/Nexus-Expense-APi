@@ -7,10 +7,10 @@ from src.models import Expense, ExpenseCreate
 def add_expense(expense: ExpenseCreate):
     new_expense = Expense(
         id=database.next_expense_id,
+        title=expense.title,
         amount=expense.amount,
-        description=expense.description,
         category=expense.category,
-        created_at=expense.created_at,
+        date=expense.date,
     )
     database.next_expense_id += 1
     database.expenses.append(new_expense)
@@ -18,7 +18,7 @@ def add_expense(expense: ExpenseCreate):
 
 
 def get_all_categories():
-    return list(set(expense.category for expense in database.expenses if expense.category))
+    return list(set(expense.category for expense in database.expenses))
 
 
 def get_all_expenses():
@@ -46,7 +46,7 @@ def calculate_total_by_category(category: str):
 
 
 def search_expenses(query: str):
-    return [expense for expense in database.expenses if query in expense.description]
+    return [expense for expense in database.expenses if query in expense.title]
 
 
 def monthly_summary():  # certain type of ai systems can be implemented to get a summary of all the monthly expenses

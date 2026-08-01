@@ -4,7 +4,7 @@ import src.database
 def test_delete_expense(client, setup_database):
     create_response = client.post(
         "/expenses",
-        json={"amount": 100, "description": "Test Expense"},
+        json={"title": "Test Expense", "amount": 100, "category": "Food"},
     )
     expense_id = create_response.json()["id"]
 

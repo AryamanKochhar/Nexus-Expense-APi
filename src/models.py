@@ -5,14 +5,14 @@ from pydantic import BaseModel, Field
 
 class Expense(BaseModel):
     id: int
+    title: str
     amount: float
-    description: str
-    category: str | None = None
-    created_at: datetime
+    category: str
+    date: datetime
 
 
 class ExpenseCreate(BaseModel):
+    title: str
     amount: float
-    description: str
-    category: str | None = None
-    created_at: datetime = Field(default_factory=datetime.now)
+    category: str
+    date: datetime = Field(default_factory=datetime.now)
