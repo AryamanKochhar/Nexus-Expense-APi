@@ -50,3 +50,7 @@ def get_total_by_category(category: str):
 def search_expenses(q: str):
     return services.search_expenses(q)
 
+@router.get("/expenses/monthly-summary")
+def get_monthly_summary():
+    return services.monthly_summary()
+
